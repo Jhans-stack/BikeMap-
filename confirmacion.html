@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- PASO 1: permite que el navegador use el ancho real del celular. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación | BikeMap</title>
+  <!-- PASO 2: conectar este HTML con el archivo CSS compartido. -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <!-- Este icono aparece en la pestaña del navegador. -->
+  <link rel="icon" type="image/png" href="iconos/BIKEMAP.png">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<!-- PASO 3: este header permanece visible con position: sticky en CSS. -->
+<header class="cabecera">
+  <div class="contenedor barra">
+    <a class="marca" href="index.html"><img src="iconos/BIKEMAP.png" alt="" width="42" height="42">BikeMap</a>
+    <!-- PASO 4: la lista principal se ordena horizontalmente con Flexbox. -->
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#nosotros">BikeMap</a></li>
+        <li>
+          <!-- details abre el submenú con clic, Enter o toque; no necesita JS. -->
+          <details class="desplegable">
+            <summary>Funciones</summary>
+            <!-- Esta lista es el menú vertical desplegable. -->
+            <ul class="submenu">
+              <li><a href="index.html#servicios">Cómo funciona</a></li>
+              <li><a href="index.html#orientador">Planificar una ruta</a></li>
+              <li><a href="index.html#contacto">Probar el formulario</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="recursos.html">Guía de uso</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- Confirmación de demostración -->
+
+<main id="contenido" class="contenedor seccion">
+
+ <!-- PASO 9: página fija; no recibe ni muestra los datos del formulario -->
+
+ <section class="confirmacion" aria-labelledby="confirmado">
+
+  <div class="tarjeta-confirmacion">
+
+   <p class="etiqueta">Demostración completada</p>
+
+   <h1 id="confirmado">¡Gracias por probar BikeMap!</h1>
+
+   <p>Así se vería la confirmación después de probar el flujo de planificación de rutas.</p>
+
+
+
+   <!-- Aviso obligatorio de simulación -->
+
+   <div class="aviso" role="note" aria-labelledby="aviso-titulo">
+
+    <h2 id="aviso-titulo">Esta página es una demostración</h2>
+
+    <p>Esta pantalla es <strong>fija</strong>: se muestra igual para cualquier persona que complete el formulario.</p>
+    <ul>
+     <li>No se almacenó ningún dato, como tu nombre, correo, origen o destino.</li>
+     <li>No se buscó ni calculó una ruta y no se inició la navegación.</li>
+     <li>No se envió ningún correo ni se guardó una ruta como favorita.</li>
+    </ul>
+   </div>
+   <h2>¿Qué puedes hacer con BikeMap?</h2>
+   <ol>
+    <li>Ingresa tu origen y destino para consultar rutas en bicicleta.</li>
+    <li>Elige un recorrido y sigue las indicaciones paso a paso durante la navegación.</li>
+    <li>Guarda tus rutas favoritas para consultarlas y utilizarlas nuevamente.</li>
+   </ol>
+   <div class="acciones-confirmacion">
+
+    <a class="boton" href="index.html#contacto">Volver a la demostración</a>
+
+    <a class="enlace" href="index.html">Planificar una ruta</a>
+   </div>
+  </div>
+ </section>
+</main>
+<!-- PASO FINAL: pie compartido por las páginas del sitio. -->
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>BikeMap</strong> · Planifica, navega y guarda tus rutas</p>
+    <p>Información de contacto: próximamente</p>
+    <nav class="redes" aria-label="Enlaces a redes sociales">
+      <!-- Son páginas generales de las redes; reemplazar por cuentas del proyecto. -->
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/facebook.svg" alt="" width="24" height="24">Facebook</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/instagram.svg" alt="" width="24" height="24">Instagram</a>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/youtube.svg" alt="" width="24" height="24">YouTube</a>
+    </nav>
+    <p>© 2026 BikeMap · Rutas en bicicleta para cada trayecto · <a href="FUENTES.txt">Créditos de recursos</a></p>
+  </div>
+</footer>
+</body>
+</html>

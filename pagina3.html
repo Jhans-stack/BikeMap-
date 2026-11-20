@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+ <meta charset="UTF-8">
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>ACME | Beneficios y Rutas</title>
+
+ <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
+
+ <link rel="stylesheet" href="css/estilos.css">
+
+ 
+
+ <style>
+
+  /* Estilos sencillos para el contenido informativo */
+
+  .contenedor-info {
+
+   max-width: 700px;
+
+   margin: 30px auto;
+
+   padding: 20px;
+
+   font-family: system-ui, -apple-system, sans-serif;
+
+   color: #334155;
+
+  }
+
+
+
+  .seccion-card {
+
+   background-color: #ffffff;
+
+   padding: 20px;
+
+   border-radius: 8px;
+
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+   margin-bottom: 24px;
+
+  }
+
+
+
+  .seccion-card h2 {
+
+   margin-top: 0;
+
+   color: #1e293b;
+
+   border-bottom: 2px solid #e2e8f0;
+
+   padding-bottom: 8px;
+
+  }
+
+
+
+  .lista-sencilla {
+
+   padding-left: 20px;
+
+   line-height: 1.6;
+
+  }
+
+
+
+  .lista-sencilla li {
+
+   margin-bottom: 8px;
+
+  }
+
+
+
+  .btn-volver {
+
+   display: inline-block;
+
+   padding: 10px 20px;
+
+   background-color: #2563eb;
+
+   color: #ffffff;
+
+   border: none;
+
+   border-radius: 6px;
+
+   font-size: 1rem;
+
+   font-weight: 600;
+
+   cursor: pointer;
+
+   text-decoration: none;
+
+   margin-bottom: 20px;
+
+  }
+
+
+
+  .btn-volver:hover {
+
+   background-color: #1d4ed8;
+
+  }
+
+ </style>
+
+</head>
+
+<body>
+
+
+
+ <header class="cabecera">
+
+  <div class="contenedor barra">
+
+   <a class="marca" href="#inicio" aria-label="ACME, ir al inicio">
+
+    <img src="iconos/favicon.svg" alt="" width="42" height="42">
+
+    ACME
+
+   </a>
+
+   <button id="boton-menu" class="hamburguesa" type="button"
+
+       aria-controls="navegacion" aria-expanded="false" aria-label="Abrir menú">
+
+    <span class="lineas" aria-hidden="true"><span></span><span></span><span></span></span>
+
+    <span id="texto-menu">Menú</span>
+
+   </button>
+
+   <nav id="navegacion" class="navegacion" aria-label="Navegación principal">
+
+    <ul class="menu">
+
+     <li><a href="#inicio">Inicio</a></li>
+
+     <li><a href="#nosotros">Nosotros</a></li>
+
+     <li>
+
+      <details id="resolver" class="desplegable">
+
+       <summary>Resolver</summary>
+
+       <ul class="submenu">
+
+        <li><a href="#servicios">Servicios</a></li>
+
+        <li><a href="#orientador">Ver objetos</a></li>
+
+        <li><a href="#contacto">Solicitar devolución</a></li>
+
+       </ul>
+
+      </details>
+
+     </li>
+
+     <li><a href="recursos.html">Video y guía</a></li>
+
+    </ul>
+
+   </nav>
+
+  </div>
+
+ </header>
+
+
+
+ <main class="contenedor-info">
+
+  <!-- Única funcionalidad: Botón para volver a la página principal -->
+
+  <button class="btn-volver" type="button" onclick="window.location.href='index.html'">
+
+   ← Volver al inicio
+
+  </button>
+
+
+
+  <!-- Información de Rutas -->
+
+  <section class="seccion-card">
+
+   <h2>¿Qué es una Ruta Ciclista?</h2>
+
+   <p>
+
+    Una ruta es un trayecto planificado para recorrer en bicicleta de forma segura y eficiente. Planificar tu ruta antes de salir te ayuda a evitar vías con tráfico pesado y aprovechar mejor tu tiempo.
+
+   </p>
+
+  </section>
+
+
+
+  <!-- Beneficios de montar bicicleta -->
+
+  <section class="seccion-card">
+
+   <h2>Beneficios de Montar en Bicicleta</h2>
+
+   <ul class="lista-sencilla">
+
+    <li><strong>Mejora la salud cardiovascular:</strong> Fortalece el corazón y reduce el riesgo de enfermedades.</li>
+
+    <li><strong>Reduce el estrés:</strong> El ejercicio al aire libre ayuda a despejar la mente y mejorar el ánimo.</li>
+
+    <li><strong>Ahorra dinero y tiempo:</strong> Evitas el tráfico de la ciudad y los gastos en combustible o pasajes.</li>
+
+    <li><strong>Cuida el medio ambiente:</strong> Es un medio de transporte limpio que no genera emisiones contaminantes.</li>
+
+   </ul>
+
+  </section>
+
+ </main>
+
+<script src="menu.js" defer></script>
+
+</body>
+
+</html>

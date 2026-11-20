@@ -1,0 +1,768 @@
+/* PASO 1. El ancho incluye padding y borde: facilita calcular tamaños. */
+* {
+  box-sizing: border-box;
+}
+
+/* PASO 2. Estilos generales que heredan los textos. */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #152d7c;
+  background: #f9fbff;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.7rem;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+a {
+  color: #253f92;
+  text-underline-offset: 4px;
+}
+
+/* El foco visible permite recorrer la web con el teclado. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #1844d6;
+  outline-offset: 4px;
+}
+
+/* PASO 3. Nunca estirar una imagen más allá de su contenedor. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contenedor {
+  width: 92%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.seccion {
+  padding: 3.5rem 0;
+}
+
+.fondo {
+  background: #f9fbff;
+}
+
+.etiqueta {
+  font-weight: bold;
+  color: #0045c5;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.nota {
+  font-size: .9rem;
+}
+
+/* PASO 4. Flexbox alinea logo y navegación. wrap evita desbordamientos. */
+.cabecera {
+  background: white;
+  border-bottom: 1px solid #f9fbff;
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a,
+summary {
+  display: block;
+  padding: .65rem .8rem;
+  color: #152d7c;
+  cursor: pointer;
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+.menu a:hover,
+summary:hover {
+  background: #f9fbff;
+  border-radius: .4rem;
+}
+
+/* El menú acompaña al usuario al bajar por la página.
+   sticky conserva su espacio: no hace falta compensar con padding en body.
+   top: 0 lo mantiene pegado arriba; z-index evita que las fotos lo tapen. */
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 18px #0f249b10;
+}
+
+/* Dejar espacio al navegar con #id para que el header no tape el título. */
+section[id],
+main[id] {
+  scroll-margin-top: 130px;
+}
+
+/* PASO 5. La lista interior es vertical. Solo details controla su apertura. */
+.desplegable {
+  position: relative;
+}
+
+summary {
+  list-style: revert;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 230px;
+  padding: .5rem;
+  margin: .3rem 0 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #f9fbff;
+  border-radius: .5rem;
+  box-shadow: 0 8px 20px #222c5920;
+  z-index: 10;
+}
+
+/* PASO 6. Dos columnas iguales: imagen y texto. minmax evita desborde. */
+.dos-columnas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.dos-columnas>* {
+  min-width: 0;
+}
+
+.hero {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2rem .8rem 2.5rem 1rem;
+}
+
+/* PASO 7. Enlaces y botones con apariencia consistente. */
+.boton {
+  display: inline-block;
+  padding: .8rem 1.1rem;
+  background: #1c54ec;
+  color: white;
+  border: 0;
+  border-radius: .45rem;
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: #1f3c71;
+}
+
+.enlace {
+  display: inline-block;
+  margin: .8rem;
+}
+
+/* PASO 8. Tres tarjetas en escritorio. */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.tarjeta {
+  padding: 1.5rem;
+  border: 1px solid #f9fbff;
+  border-radius: .7rem;
+  background: white;
+}
+
+.numero {
+  color: #1f2eb3;
+  font-weight: bold;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+figure {
+  margin: 0;
+}
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: .6rem;
+}
+
+figcaption {
+  padding-top: .5rem;
+}
+
+blockquote {
+  margin-left: 0;
+  font-size: 1.35rem;
+}
+
+.servicios {
+  background: #f2f5f9;
+  color: #080d16;
+  border-radius: 1rem;
+}
+ 
+.servicios h2,
+.servicios h3,
+.servicios p,
+.servicios a {
+  font-family: sans-serif, Arial, Helvetica;
+}
+ 
+.servicios h2 {
+  color: #071b35;
+}
+ 
+.intro-servicios {
+  max-width: 650px;
+  margin-bottom: 2rem;
+}
+ 
+.servicios .tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+ 
+.tarjeta-bikemap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d4deeb;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px #071b3518;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+ 
+.tarjeta-bikemap h3 {
+  color: #071b35;
+}
+ 
+.tarjeta-bikemap .numero {
+  color: #071b35;
+  font-weight: bold;
+}
+ 
+.icono-servicio {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+ 
+.tarjeta-bikemap p {
+  flex-grow: 1;
+}
+ 
+.tarjeta-bikemap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px #071b3525;
+}
+ 
+.tarjeta-bikemap .boton-bikemap {
+  background: #071b35;
+  color: #ffffff;
+  border: 2px solid #071b35;
+  margin-top: 1rem;
+}
+ 
+.tarjeta-bikemap .boton-bikemap:hover {
+  background: #ffffff;
+  color: #071b35;
+}
+ 
+/* Tablet */
+@media (max-width: 900px) {
+  .servicios .tarjetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+ 
+/* Celular */
+@media (max-width: 600px) {
+  .servicios .tarjetas {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-bikemap {
+    transition: none;
+  }
+ 
+  .tarjeta-bikemap:hover {
+    transform: none;
+  }
+}
+
+/* PASO 9. El orientador responde a los radios sin JavaScript. */
+.seccion-orientador {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+}
+ 
+ 
+.orientador {
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: #ffffff;
+}
+ 
+ 
+.orientador legend {
+  font-weight: bold;
+  padding: 0 8px;
+}
+ 
+ 
+.orientador input[type="radio"] {
+  margin: 12px 6px 12px 0;
+  accent-color: #2563eb;
+}
+ 
+ 
+.orientador label {
+  display: inline-block;
+  margin: 8px 16px 8px 0;
+  cursor: pointer;
+}
+
+.estado-inicial {
+  display: block;
+  padding: 16px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+}
+
+.orientador .respuesta {
+  display: none;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: #eff6ff;
+  border-left: 4px solid #2563eb;
+}
+
+.orientador .respuesta h3 {
+  margin-top: 0;
+  color: #1d4ed8;
+}
+
+.orientador input[type="radio"]:checked ~ .estado-inicial {
+  display: none;
+}
+
+.orientador #perfil:checked ~ .respuesta-perfil {
+  display: block;
+}
+ 
+ 
+.orientador #donacion:checked ~ .respuesta-donacion {
+  display: block;
+}
+ 
+ 
+.orientador #soporte:checked ~ .respuesta-soporte {
+  display: block;
+}
+
+/* PASO 10. Cada campo ocupa una fila del formulario. */
+.formulario {
+  display: grid;
+  gap: .6rem;
+  background: white;
+  border: 1px solid #285394;
+  padding: 1.5rem;
+  border-radius: .7rem;
+}
+
+.formulario>label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  padding: .7rem;
+  border: 1px solid #586eb8;
+  border-radius: .3rem;
+  background: white;
+  color: #22224e;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: #2a3aca;
+}
+
+/* PASO 11. La proporción del video se conserva a cualquier ancho. */
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+.confirmacion {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.pie {
+  background: #26429c;
+  color: white;
+  padding: 2rem 0;
+}
+
+.pie a {
+  color: white;
+}
+
+.redes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.redes a {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.redes img {
+  filter: invert(1);
+}
+
+.saltar {
+  position: absolute;
+  left: -9999px;
+}
+
+.saltar:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 1rem;
+  background: white;
+  z-index: 20;
+}
+
+/* PASO 12. TABLET: estas reglas se aplican a 900 px o menos. */
+@media (max-width: 900px) {
+  .barra {
+    gap: .4rem;
+  }
+
+  .tarjetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* PASO 13. CELULAR: cambiamos columnas por una sola columna. */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .dos-columnas,
+  .tarjetas,
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .dos-columnas {
+    gap: 1.5rem;
+  }
+
+  .hero,
+  .seccion {
+    padding-top: 2.2rem;
+    padding-bottom: 2.2rem;
+  }
+
+  .barra nav {
+    width: 100%;
+  }
+
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .menu a,
+  summary {
+    padding: .45rem .55rem;
+    font-size: .95rem;
+  }
+
+  /* Conserva el desplegable vertical bajo Resolver y dentro de la pantalla. */
+  .submenu {
+    left: auto;
+    right: 0;
+    width: 205px;
+    max-width: 85vw;
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+
+  section[id],
+  main[id] {
+    scroll-margin-top: 190px;
+  }
+
+  .enlace {
+    margin-left: 0;
+  }
+
+  .formulario,
+  .orientador,
+  .resultados {
+    padding: 1rem;
+  }
+}
+
+/* Detalles cálidos: fondo de papel, acento terracota y bordes suaves. */
+.postal {
+  background: #fff;
+  padding: .8rem;
+  border: 1px solid #f9fbff;
+  border-radius: 2rem 1rem 2.8rem 1rem;
+  box-shadow: 8px 10px 0 #b2c9f3;
+}
+
+.postal figcaption {
+  padding: .6rem .5rem .2rem;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+  letter-spacing: -.035em;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+.tarjeta:nth-child(2) {
+  background: #f9fbff;
+  border-radius: 1.5rem .6rem 1.5rem .6rem;
+}
+
+blockquote {
+  font-family: Georgia, serif;
+  font-style: italic;
+  max-width: 780px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+@media (max-width: 600px) {
+  .barra {
+    padding: .6rem 0;
+  }
+
+  .marca {
+    font-size: 1.2rem;
+  }
+
+  .marca img {
+    width: 30px;
+  }
+}
+
+/* Estilos para el simulador de navegación US002 */
+.oculto {
+  display: none !important;
+}
+
+.panel-navegacion-wrapper {
+  background: white;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.controles-navegacion {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.vista-conduccion {
+  border: 2px solid #1c54ec;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: #f0f4ff;
+  position: relative;
+}
+
+.mapa-3d-simulado {
+  height: 180px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-ciclista {
+  font-size: 3rem;
+  animation: moverCiclista 2s infinite alternate ease-in-out;
+}
+
+@keyframes moverCiclista {
+  from { transform: translateX(-20px); }
+  to { transform: translateX(20px); }
+}
+
+.panel-instrucciones {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid #1c54ec;
+}
+
+.acciones-simulacion {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* Aviso de señal GPS */
+.aviso-gps {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  border: 1px solid #f87171;
+}
+
+/* Resumen final */
+.resumen-navegacion {
+  background: #ecfdf5;
+  border: 2px solid #10b981;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+/* Modo Noche / Oscuro (Brillo adaptado) */
+.modo-noche {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+.modo-noche .vista-conduccion {
+  background: #1e293b;
+  border-color: #3b82f6;
+}
+
+.modo-noche .panel-instrucciones {
+  background: #0f172a;
+  color: #f8fafc;
+}

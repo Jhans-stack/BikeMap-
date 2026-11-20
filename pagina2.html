@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+ <meta charset="UTF-8">
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>ACME | Crear Ruta</title>
+
+ <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
+
+ <link rel="stylesheet" href="css/estilos.css">
+
+ <script src="js/menu.js" defer></script>
+
+ <style>
+
+  /* Estilos sencillos para la interfaz de creación de ruta */
+
+  .contenedor-proceso {
+
+   max-width: 600px;
+
+   margin: 40px auto;
+
+   padding: 24px;
+
+   background-color: #ffffff;
+
+   border-radius: 8px;
+
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+   font-family: system-ui, -apple-system, sans-serif;
+
+  }
+
+
+
+  .contenedor-proceso h2 {
+
+   margin-top: 0;
+
+   color: #1e293b;
+
+   font-size: 1.5rem;
+
+   border-bottom: 2px solid #e2e8f0;
+
+   padding-bottom: 10px;
+
+  }
+
+
+
+  .grupo-campo {
+
+   margin-bottom: 18px;
+
+   display: flex;
+
+   flex-direction: column;
+
+   gap: 6px;
+
+  }
+
+
+
+  .grupo-campo label {
+
+   font-weight: 600;
+
+   font-size: 0.9rem;
+
+   color: #475569;
+
+  }
+
+
+
+  .grupo-campo input[type="text"],
+
+  .grupo-campo input[type="file"] {
+
+   padding: 10px 12px;
+
+   border: 1px solid #cbd5e1;
+
+   border-radius: 6px;
+
+   font-size: 0.95rem;
+
+   outline: none;
+
+   transition: border-color 0.2s;
+
+  }
+
+
+
+  .grupo-campo input[type="text"]:focus {
+
+   border-color: #2563eb;
+
+  }
+
+
+
+  /* Área para previa / subir imagen */
+
+  .caja-imagen {
+
+   border: 2px dashed #cbd5e1;
+
+   border-radius: 6px;
+
+   padding: 20px;
+
+   text-align: center;
+
+   background-color: #f8fafc;
+
+   cursor: pointer;
+
+  }
+
+
+
+  .caja-imagen img {
+
+   max-width: 100%;
+
+   max-height: 180px;
+
+   border-radius: 4px;
+
+   display: none;
+
+   margin: 10px auto 0;
+
+  }
+
+
+
+  .acciones-btn {
+
+   display: flex;
+
+   gap: 12px;
+
+   margin-top: 24px;
+
+  }
+
+
+
+  .btn-primario, .btn-secundario {
+
+   flex: 1;
+
+   padding: 12px;
+
+   border: none;
+
+   border-radius: 6px;
+
+   font-size: 1rem;
+
+   font-weight: 600;
+
+   cursor: pointer;
+
+   transition: background-color 0.2s;
+
+  }
+
+
+
+  .btn-primario {
+
+   background-color: #2563eb;
+
+   color: #ffffff;
+
+  }
+
+
+
+  .btn-primario:hover {
+
+   background-color: #1d4ed8;
+
+  }
+
+
+
+  .btn-secundario {
+
+   background-color: #e2e8f0;
+
+   color: #334155;
+
+  }
+
+
+
+  .btn-secundario:hover {
+
+   background-color: #cbd5e1;
+
+  }
+
+ </style>
+
+</head>
+
+<body>
+
+
+
+ <header class="cabecera">
+
+  <div class="contenedor barra">
+
+   <a class="marca" href="#inicio" aria-label="ACME, ir al inicio">
+
+    <img src="iconos/favicon.svg" alt="" width="42" height="42">
+
+    ACME
+
+   </a>
+
+   <button id="boton-menu" class="hamburguesa" type="button"
+
+       aria-controls="navegacion" aria-expanded="false" aria-label="Abrir menú">
+
+    <span class="lineas" aria-hidden="true"><span></span><span></span><span></span></span>
+
+    <span id="texto-menu">Menú</span>
+
+   </button>
+
+   <nav id="navegacion" class="navegacion" aria-label="Navegación principal">
+
+    <ul class="menu">
+
+     <li><a href="#inicio">Inicio</a></li>
+
+     <li><a href="#nosotros">Nosotros</a></li>
+
+     <li>
+
+      <details id="resolver" class="desplegable">
+
+       <summary>Resolver</summary>
+
+       <ul class="submenu">
+
+        <li><a href="#servicios">Servicios</a></li>
+
+        <li><a href="#orientador">Ver objetos</a></li>
+
+        <li><a href="#contacto">Solicitar devolución</a></li>
+
+       </ul>
+
+      </details>
+
+     </li>
+
+     <li><a href="recursos.html">Video y guía</a></li>
+
+    </ul>
+
+   </nav>
+
+  </div>
+
+ </header>
+
+
+
+ <main>
+
+  <section class="contenedor-proceso">
+
+   <h2>Creación de Nueva Ruta</h2>
+
+   
+
+   <form id="form-ruta">
+
+    <!-- Input 1: Nombre de la ruta -->
+
+    <div class="grupo-campo">
+
+     <label for="nombre-ruta" id="nombre">Nombre de la Ruta</label>
+
+     <input type="text" id="nombre-ruta" placeholder="Ej. Ruta Centro - Almacén Norte">
+
+    </div>
+
+
+
+    <!-- Input 2: Punto de origen -->
+
+    <div class="grupo-campo">
+
+     <label for="origen">Punto de Origen</label>
+
+     <input type="text" id="origen" placeholder="Ingrese dirección de partida">
+
+    </div>
+
+
+
+    <!-- Input 3: Punto de destino -->
+
+    <div class="grupo-campo">
+
+     <label for="destino">Punto de Destino</label>
+
+     <input type="text" id="destino" placeholder="Ingrese dirección de llegada">
+
+    </div>
+
+
+
+    <!-- Espacio para la imagen -->
+
+    
+
+    <!-- Botones -->
+
+    <div class="acciones-btn">
+
+     <button type="button" class="btn-secundario" onclick="window.history.back()">Cancelar</button>
+
+     <button type="button" class="btn-primario" onclick="guardar()">Guardar Ruta</button>
+
+     <h2 id="saludo" style="color: green; font-size: 1.1rem; margin-top: 15px;"></h2>
+
+    </div>
+
+   </form>
+
+  </section>
+
+ </main>
+
+
+
+ <script src="js/menu.js"></script>
+
+
+
+</body>
+
+</html>

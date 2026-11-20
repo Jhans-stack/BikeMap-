@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- PASO 1: permite que el navegador use el ancho real del celular. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía de uso | BikeMap</title>
+  <!-- PASO 2: conectar este HTML con el archivo CSS compartido. -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <!-- Este icono aparece en la pestaña del navegador. -->
+  <link rel="icon" type="image/png" href="iconos/BIKEMAP.png">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<!-- PASO 3: este header permanece visible con position: sticky en CSS. -->
+<header class="cabecera">
+  <div class="contenedor barra">
+    <a class="marca" href="index.html"><img src="iconos/BIKEMAP.png" alt="" width="42" height="42">BikeMap</a>
+    <!-- PASO 4: la lista principal se ordena horizontalmente con Flexbox. -->
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#nosotros">BikeMap</a></li>
+        <li>
+          <!-- details abre el submenú con clic, Enter o toque; no necesita JS. -->
+          <details class="desplegable">
+            <summary>Funciones</summary>
+            <!-- Esta lista es el menú vertical desplegable. -->
+            <ul class="submenu">
+              <li><a href="index.html#servicios">Cómo funciona</a></li>
+              <li><a href="index.html#orientador">Planificar una ruta</a></li>
+              <li><a href="index.html#contacto">Probar el formulario</a></li>
+            </ul>
+          </details>
+        </li>
+        
+        
+        <li><a href="recursos.html">Guía de uso</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="contenido" class="contenedor seccion"><p class="etiqueta">Cómo usar BikeMap</p><h1>Planifica tu ruta y disfruta el camino.</h1>
+  <section class="dos-columnas" aria-labelledby="video-titulo"><div>
+    <!-- PASO 9: video de referencia. El enlace alternativo siempre está disponible. -->
+    <iframe class="video" src="https://www.youtube-nocookie.com/embed/MCKH5xk8X-g" title="Video de UNESCO en español sobre los Objetivos de Desarrollo Sostenible" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <p class="nota">Este video de UNESCO trata sobre los Objetivos de Desarrollo Sostenible; no es un tutorial de BikeMap.</p><p><a href="https://www.youtube.com/watch?v=MCKH5xk8X-g" target="_blank" rel="noopener noreferrer">Abrir el video de UNESCO en YouTube</a>.</p></div>
+    <div><h2 id="video-titulo">Planifica, navega y guarda tus rutas</h2><p>BikeMap te ayuda a consultar recorridos en bicicleta entre un origen y un destino, elegir una ruta según tus necesidades de viaje y seguir indicaciones paso a paso.</p><ol><li>Ingresa tu ubicación de origen y tu destino para buscar rutas disponibles.</li><li>Elige un recorrido e inicia la navegación con indicaciones durante el trayecto.</li><li>Guarda tus rutas favoritas para volver a consultarlas cuando las necesites.</li></ol><a class="boton" href="index.html#orientador">Conocer las funciones de BikeMap</a></div>
+  </section></main>
+<!-- PASO FINAL: pie compartido por las páginas del sitio. -->
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>BikeMap</strong> · Planifica, navega y guarda tus rutas</p>
+    <p>Información de contacto: próximamente</p>
+    <nav class="redes" aria-label="Enlaces a redes sociales">
+      <!-- Son páginas generales de las redes; reemplazar por cuentas del proyecto. -->
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/facebook.svg" alt="" width="24" height="24">Facebook</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/instagram.svg" alt="" width="24" height="24">Instagram</a>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/youtube.svg" alt="" width="24" height="24">YouTube</a>
+    </nav>
+    <p>© 2026 BikeMap · Rutas en bicicleta para cada trayecto · <a href="FUENTES.txt">Créditos de recursos</a></p>
+  </div>
+</footer>
+</body>
+</html>

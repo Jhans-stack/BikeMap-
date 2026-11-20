@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- PASO 1: permite que el navegador use el ancho real del celular. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | BikeMap</title>
+    <!-- PASO 2: conectar este HTML con el archivo CSS compartido. -->
+    <link rel="stylesheet" href="css/estilos.css" />
+    <!-- Este icono aparece en la pestaña del navegador. -->
+    <link rel="icon" type="image/svg+xml" href="iconos/rby.png" />
+
+    <script src="js/buscar-rutas.js" defer></script>
+    <script src="js/panel-conduccion.js" defer></script>
+    <script src="js/favoritos.js" defer></script>
+    <script src="js/menu.js"></script>
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <!-- PASO 3: este header permanece visible con position: sticky en CSS. -->
+    <header class="cabecera">
+      <div class="contenedor barra">
+        <a class="marca" href="index.html"
+          ><img src="iconos/BIKEMAP.png" alt="" width="42" height="42" />BikeMap</a
+        >
+
+        <!-- PASO 4: la lista principal se ordena horizontalmente con Flexbox. -->
+        <nav aria-label="Navegación principal">
+          <ul class="menu">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#nosotros">BikeMap</a></li>
+            <li>
+              <!-- details abre el submenú con clic, Enter o toque; no necesita JS. -->
+              <details class="desplegable">
+                <summary>Funciones</summary>
+                <!-- Esta lista es el menú vertical desplegable. -->
+                <ul class="submenu">
+                  <li><a href="index.html#servicios">Cómo funciona</a></li>
+                  <li><a href="index.html#busqueda-rutas">Planificar una ruta</a></li>
+                  <li><a href="index.html#contacto">Probar el formulario</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="recursos.html">Guía de uso</a></li>
+            <li><a href="#mis-rutas">Mis rutas</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="contenido">
+      <!-- PASO 5: el inicio está en la sección, no en el header sticky. -->
+      <section
+        id="inicio"
+        class="hero contenedor dos-columnas"
+        aria-labelledby="titulo"
+      >
+        <div>
+          <p class="etiqueta">Explora la ciudad sobre dos ruedas</p>
+          <h1 id="titulo">Planifica tu ruta.<br />Disfruta el camino.</h1>
+          <p>
+            Ingresa un origen y un destino para consultar rutas en bicicleta.
+            Elige el recorrido que mejor se ajuste a tu viaje y sigue
+            indicaciones paso a paso.
+          </p>
+          <a class="boton" href="#orientador">Planificar mi ruta</a>
+          <a class="enlace" href="recursos.html">Conocer BikeMap</a>
+          <p class="nota">
+            Presentación del proyecto BikeMap; esta página no calcula rutas en
+            tiempo real.
+          </p>
+        </div>
+        <figure class="postal">
+          <img
+            class="foto"
+            src="imagenes/pinkbike.webp"
+            alt="Mochila preparada para una salida"
+            width="1000"
+            height="667"
+          />
+          <figcaption>Un buen recorrido empieza con un plan.</figcaption>
+        </figure>
+      </section>
+      <section id="nosotros" class="seccion fondo">
+        <div class="contenedor dos-columnas">
+          <img
+            class="foto"
+            src="imagenes/mockup.png"
+            alt="Productos y puestos de una feria"
+            width="1000"
+            height="667"
+            loading="lazy"
+          />
+          <div>
+            <p class="etiqueta">Tu compañera para recorrer la ciudad</p>
+            <h2>Cada trayecto merece una buena ruta.</h2>
+            <p>
+              BikeMap ayuda a ciclistas a buscar recorridos entre un punto de
+              origen y su destino, y a elegir una ruta adecuada según sus
+              necesidades de viaje.
+            </p>
+            <h3>Planifica y pedalea</h3>
+            <p>
+              Consulta rutas, recibe indicaciones paso a paso durante la
+              navegación y guarda tus recorridos favoritos para volver a
+              utilizarlos.
+            </p>
+            <p>
+              La información clara y accesible te permite concentrarte en el
+              camino, incluso con indicaciones por voz.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="seccion servicios" id="servicios">
+        <div class="contenedor">
+          <span class="etiqueta">DESCUBRE BIKEMAP</span>
+          <h2>Tu próxima ruta empieza aquí</h2>
+          <p class="intro-servicios">
+            Descubre nuevas rutas, conoce tu ciudad y pedalea hacia una
+            movilidad más sostenible.
+          </p>
+          <div class="tarjetas">
+            <article class="tarjeta tarjeta-bikemap">
+              <img src="iconos/The_rby.png" alt="" class="icono-servicio" style="border-radius: 50%; object-fit: cover;" />
+              <h3>Encuentra tu ruta</h3>
+              <p>
+                Explora rutas ciclistas de tu ciudad y encuentra caminos que se
+                adapten a tu destino.
+              </p>
+              <a href="#rutas" class="boton boton-bikemap"> Explorar rutas </a>
+            </article>
+            <article class="tarjeta tarjeta-bikemap">
+              <img src="iconos/The_rby.png" alt="" class="icono-servicio" style="border-radius: 50%; object-fit: cover;" />
+              <h3>Explora la ciudad</h3>
+              <p>
+                Descubre nuevas calles, conecta distintos puntos de la ciudad y
+                planifica tus recorridos.
+              </p>
+              <a href="#rutas" class="boton boton-bikemap"> Ver el mapa </a>
+            </article>
+            <article class="tarjeta tarjeta-bikemap">
+              <img src="iconos/The_rby.png" alt="" class="icono-servicio" style="border-radius: 50%; object-fit: cover;" />
+              <h3>Pedalea por el planeta</h3>
+              <p>
+                Elige la bicicleta para tus desplazamientos y contribuye a una
+                movilidad más sostenible.
+              </p>
+              <a href="#beneficios" class="boton boton-bikemap">
+                Conoce los beneficios
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="seccion-orientador" id="orientador">
+        <h2>¿Cómo podemos ayudarte?</h2>
+        <p>Selecciona una opción para conocer las alternativas disponibles.</p>
+
+        <fieldset class="orientador">
+          <legend>Elige una opción de ayuda</legend>
+
+          <input type="radio" id="perfil" name="orientacion" checked />
+          <label for="perfil">Perfiles de ayuda</label>
+
+          <input type="radio" id="donacion" name="orientacion" />
+          <label for="donacion">Tipos de donación</label>
+
+          <input type="radio" id="soporte" name="orientacion" />
+          <label for="soporte">Rutas de soporte</label>
+
+          <div class="estado-inicial">
+            <p>
+              Selecciona una de las opciones anteriores para ver más
+              información.
+            </p>
+          </div>
+
+          <div class="respuesta respuesta-perfil">
+            <h3>Perfiles de ayuda</h3>
+            <p>
+              Encuentra la alternativa que mejor se adapte a tus necesidades.
+            </p>
+            <ul>
+              <li>Orientación personalizada.</li>
+              <li>Acompañamiento durante el proceso.</li>
+              <li>Información sobre los recursos disponibles.</li>
+            </ul>
+          </div>
+
+          <div class="respuesta respuesta-donacion">
+            <h3>Tipos de donación</h3>
+            <p>Conoce las distintas formas de colaborar con el proyecto.</p>
+            <ul>
+              <li>Donaciones económicas.</li>
+              <li>Donación de productos y materiales.</li>
+              <li>Colaboración voluntaria.</li>
+            </ul>
+          </div>
+
+          <div class="respuesta respuesta-soporte">
+            <h3>Rutas de soporte</h3>
+            <p>Consulta los canales disponibles para recibir asistencia.</p>
+            <ul>
+              <li>Preguntas frecuentes.</li>
+              <li>Asistencia por correo electrónico.</li>
+              <li>Contacto con el equipo de soporte.</li>
+            </ul>
+          </div>
+        </fieldset>
+      </section>
+
+      <section id="proyectos" class="seccion contenedor">
+        <p class="etiqueta">Tu recorrido, en tres pasos</p>
+        <h2>Planifica, elige y llega a tu destino.</h2>
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <h3>Planifica</h3>
+            <p>
+              Indica un origen y un destino para consultar rutas en bicicleta.
+            </p>
+          </article>
+          <article class="tarjeta">
+            <h3>Elige</h3>
+            <p>Selecciona el recorrido que mejor se ajuste a tus necesidades de viaje.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Navega</h3>
+            <p>
+              Sigue indicaciones paso a paso durante el trayecto hasta llegar a
+              tu destino.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECCIÓN NUEVA: Simulador de Búsqueda de Rutas US001 -->
+<section id="busqueda-rutas" class="seccion contenedor">
+  <p class="etiqueta">US001 · Búsqueda de Rutas</p>
+  <h2>Planifica tu recorrido en bicicleta</h2>
+  <div class="dos-columnas">
+    <!-- Formulario interactivo -->
+    <form id="form-rutas" class="formulario">
+      <label for="origen">Punto de partida</label>
+      <div style="display: flex; gap: 0.5rem;">
+        <input type="text" id="origen" placeholder="Ej: Mi casa" required />
+        <!-- Botón para simular geolocalización -->
+        <button type="button" id="btn-ubicacion" class="boton" title="Usar ubicación actual">📍</button>
+      </div>
+
+      <label for="destino">Destino final</label>
+      <input type="text" id="destino" placeholder="Ej: Parque central" required autocomplete="off" />
+
+      <label for="preferencia">Filtro de elevación</label>
+      <select id="preferencia">
+        <option value="rapida">Ruta directa (incluye subidas)</option>
+        <option value="plana">Menos subidas (evita cuestas)</option>
+      </select>
+
+      <button type="submit" class="boton">Calcular Ruta</button>
+    </form>
+
+    <!-- Contenedor del mapa y resultados -->
+    <div id="mapa-simulado" class="tarjeta" style="background: #e5e7eb; display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 250px;">
+      <div id="mensaje-inicial">
+        <p>Ingresa un origen y un destino para visualizar las opciones de ruta.</p>
+      </div>
+      <div id="resultado-ruta" class="oculto"></div>
+    </div>
+  </div>
+</section>
+      
+      <!-- SECCIÓN NUEVA: Simulador de Navegación US002 -->
+      <section id="navegacion-activa" class="seccion contenedor">
+        <p class="etiqueta">US002 · Navegación en Tiempo Real</p>
+        <h2>Panel de Conducción Asistida</h2>
+        <p>Inicia la navegación para probar la guía visual, síntesis de voz, recálculo por desvío y control de brillo.</p>
+        
+        <div class="tarjeta panel-navegacion-wrapper" id="panel-modo-pantalla">
+          <!-- Controles iniciales -->
+          <div class="controles-navegacion">
+            <button id="btn-iniciar-navegacion" class="boton">Iniciar Navegación</button>
+            <label class="etiqueta-voz">
+              <input type="checkbox" id="toggle-voz" checked> Activar asistencia por voz
+            </label>
+            <button id="btn-cambiar-modo" class="boton" style="background: #4a5568;">Modo Noche / Día</button>
+          </div>
+        
+          <!-- Vista de Conducción (Oculta por defecto hasta iniciar) -->
+          <div id="vista-conduccion" class="vista-conduccion oculto">
+            <div id="estado-gps" class="aviso-gps oculto">Buscando señal GPS...</div>
+            
+            <div class="mapa-3d-simulado">
+              <div class="avatar-ciclista">🚲</div>
+              <p class="nota-mapa">Vista 3D en movimiento (Av. Arequipa)</p>
+            </div>
+          
+            <div class="panel-instrucciones">
+              <h3 id="instruccion-visual">Esperando inicio de ruta...</h3>
+              <p id="detalle-distancia" class="nota">Distancia al siguiente giro: --</p>
+            </div>
+          
+            <div class="acciones-simulacion">
+              <button id="btn-simular-desvio" class="boton" style="background: #d97706;">Simular Desvío (Recálculo)</button>
+              <button id="btn-simular-llegada" class="boton" style="background: #059669;">Simular Llegada al Destino</button>
+              <button id="btn-simular-tunel" class="boton" style="background: #4b5563;">Simular Túnel (Pérdida GPS)</button>
+            </div>
+          </div>
+        
+          <!-- Resumen final (Oculto hasta llegar) -->
+          <div id="resumen-navegacion" class="resumen-navegacion oculto">
+            <h3> ¡Has llegado a tu destino!</h3>
+            <p>Tiempo total de viaje: <span id="tiempo-final">12 min</span></p>
+            <p>Kilómetros recorridos: <span id="km-final">3.5 km</span></p>
+            <button id="btn-reiniciar" class="boton">Nueva Navegación</button>
+          </div>
+        </div>
+      </section>
+      <!-- US003: Guardar rutas -->
+
+<section id="mis-rutas" class="seccion contenedor">
+
+    <p class="etiqueta">US003 · Guardar rutas</p>
+
+    <h2>Mis rutas favoritas</h2>
+
+    <p>
+        Ingresa una ubicación inicial y una ubicación de destino
+        para guardar tu recorrido.
+    </p>
+
+    <!-- Formulario para guardar una ruta -->
+
+    <form id="formulario-ruta" class="formulario">
+
+        <label for="ubicacion-inicial">
+            Ubicación inicial
+        </label>
+
+        <input
+            type="text"
+            id="ubicacion-inicial"
+            placeholder="Ejemplo: Parque de la Amistad"
+            required
+        >
+
+        <label for="ubicacion-destino">
+            Ubicación de destino
+        </label>
+
+        <input
+            type="text"
+            id="ubicacion-destino"
+            placeholder="Ejemplo: Parque Kennedy"
+            required
+        >
+
+        <button type="submit" class="boton">
+            ⭐ Guardar ruta
+        </button>
+
+    </form>
+
+    <!-- Lista de rutas guardadas -->
+
+    <div class="rutas-guardadas">
+
+        <h3>Rutas guardadas</h3>
+
+        <div id="lista-rutas-guardadas" aria-live="polite">
+
+            <p>Todavía no tienes rutas guardadas.</p>
+
+        </div>
+
+    </div>
+
+</section>
+      <section id="galeria" class="seccion fondo">
+        <div class="contenedor">
+          <h2>Diseñada para acompañarte en cada trayecto.</h2>
+          <div class="galeria">
+            <figure>
+              <img
+                src="imagenes/mindustry.jpg"
+                alt="Mochila de referencia para la iniciativa"
+                width="1000"
+                height="667"
+                loading="lazy"
+              />
+              <figcaption>Un buen recorrido empieza con un plan.</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="imagenes/mockup.png"
+                alt="Productos expuestos en una feria"
+                width="1000"
+                height="667"
+                loading="lazy"
+              />
+              <figcaption>Explora nuevas rutas en bicicleta.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="testimonios" class="seccion contenedor">
+        <blockquote>
+          “Planifica el trayecto. Disfruta el camino”.
+        </blockquote>
+        <p>
+          BikeMap reúne la búsqueda de rutas, la navegación paso a paso y el
+          guardado de recorridos favoritos.
+        </p>
+      </section>
+      <section id="contacto" class="seccion fondo">
+        <div class="contenedor dos-columnas">
+          <div>
+            <p class="etiqueta">Demostración del formulario</p>
+            <h2>Prueba el flujo de planificación.</h2>
+            <p>
+              Completa los campos con datos de ejemplo para recorrer la
+              demostración. El prototipo no calcula una ruta ni envía
+              solicitudes.
+            </p>
+            <p class="nota">
+              Este formulario no guarda datos. No ingreses información personal
+              real.
+            </p>
+          </div>
+          <!-- PASO 8: required valida campos. Sin name: no añadimos datos a la URL. -->
+          <form action="confirmacion.html" method="get" class="formulario">
+            <label for="nombre">Nombre de ejemplo</label
+            ><input
+              id="nombre"
+              type="text"
+              required
+              maxlength="60"
+              placeholder="Ejemplo: Ana"
+              autocomplete="off"
+            />
+            <label for="correo">Correo de ejemplo</label
+            ><input
+              id="correo"
+              type="email"
+              required
+              placeholder="ana@example.com"
+              autocomplete="off"
+            />
+            <label for="actividad">Función que quieres conocer</label
+            ><select id="actividad" required>
+              <option value="">Selecciona una función</option>
+              <option>Buscar rutas</option>
+              <option>Navegar una ruta</option>
+              <option>Guardar rutas favoritas</option>
+            </select>
+            <label for="detalle">Origen y destino de ejemplo</label
+            ><textarea
+              id="detalle"
+              required
+              minlength="8"
+              maxlength="240"
+              rows="3"
+              placeholder="Ejemplo: origen y destino de tu recorrido"
+            ></textarea>
+            <div>
+              <input id="acepto" type="checkbox" required />
+              <label for="acepto">Entiendo que es una demostración.</label>
+            </div>
+            <button type="submit" class="boton">Ver confirmación</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- PASO FINAL: pie compartido por las páginas del sitio. -->
+    <footer class="pie">
+      <div class="contenedor">
+        <p><strong>BikeMap</strong> · Planifica, navega y guarda tus rutas</p>
+        <p>Información de contacto: próximamente</p>
+        <nav class="redes" aria-label="Enlaces a redes sociales">
+          <!-- Son páginas generales de las redes; reemplazar por cuentas del proyecto. -->
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img
+              src="iconos/facebook.svg"
+              alt=""
+              width="24"
+              height="24"
+            />Facebook</a
+          >
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img
+              src="iconos/instagram.svg"
+              alt=""
+              width="24"
+              height="24"
+            />Instagram</a
+          >
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img
+              src="iconos/youtube.svg"
+              alt=""
+              width="24"
+              height="24"
+            />YouTube</a
+          >
+        </nav>
+        <p>
+          © 2026 BikeMap · Rutas en bicicleta para cada trayecto ·
+          <a href="FUENTES.txt">Créditos de recursos</a>
+        </p>
+      </div>
+    </footer>
+    <button onclick="cambiarpag()">Iniciar proceso</button>
+
+    <button onclick="nuevapag()">Informacion</button>
+
+
+
+    <script src="menu.js"></script>
+
+  </body>
+</html>
