@@ -1,245 +1,229 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
- <meta charset="UTF-8">
-
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
- <title>ACME | Beneficios y Rutas</title>
-
- <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
-
- <link rel="stylesheet" href="css/estilos.css">
-
- 
-
- <style>
-
-  /* Estilos sencillos para el contenido informativo */
-
-  .contenedor-info {
-
-   max-width: 700px;
-
-   margin: 30px auto;
-
-   padding: 20px;
-
-   font-family: system-ui, -apple-system, sans-serif;
-
-   color: #334155;
-
-  }
-
-
-
-  .seccion-card {
-
-   background-color: #ffffff;
-
-   padding: 20px;
-
-   border-radius: 8px;
-
-   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
-   margin-bottom: 24px;
-
-  }
-
-
-
-  .seccion-card h2 {
-
-   margin-top: 0;
-
-   color: #1e293b;
-
-   border-bottom: 2px solid #e2e8f0;
-
-   padding-bottom: 8px;
-
-  }
-
-
-
-  .lista-sencilla {
-
-   padding-left: 20px;
-
-   line-height: 1.6;
-
-  }
-
-
-
-  .lista-sencilla li {
-
-   margin-bottom: 8px;
-
-  }
-
-
-
-  .btn-volver {
-
-   display: inline-block;
-
-   padding: 10px 20px;
-
-   background-color: #2563eb;
-
-   color: #ffffff;
-
-   border: none;
-
-   border-radius: 6px;
-
-   font-size: 1rem;
-
-   font-weight: 600;
-
-   cursor: pointer;
-
-   text-decoration: none;
-
-   margin-bottom: 20px;
-
-  }
-
-
-
-  .btn-volver:hover {
-
-   background-color: #1d4ed8;
-
-  }
-
- </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACME | Beneficios y Rutas</title>
+  <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <style>
+    /* Estilos mínimos específicos para los marcos de plantilla de imágenes
+       (Puedes mover esto a estilos.css si deseas o borrarlo cuando pongas tus fotos) */
+    .plantilla-img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #eff6ff;
+      border: 2px dashed #1c54ec;
+      color: #152d7c;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .plantilla-img strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #1c54ec;
+    }
+
+    /* Ajuste para tarjetas de la galería con imágenes */
+    .tarjeta-ruta-img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
+    .barra-superior-ruta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 2rem;
+    }
+  </style>
 </head>
-
 <body>
 
+  <!-- ENLACE DE ACCESIBILIDAD (Trazabilidad con estilos.css) -->
+  <a class="saltar" href="#contenido-principal">Saltar al contenido</a>
 
+  <!-- CABECERA IDÉNTICA AL SITIO PRINCIPAL -->
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="index.html#inicio" aria-label="ACME, ir al inicio">
+        <img src="iconos/favicon.svg" alt="" width="42" height="42">
+        ACME
+      </a>
 
- <header class="cabecera">
+      <button id="boton-menu" class="hamburguesa" type="button"
+              aria-controls="navegacion" aria-expanded="false" aria-label="Abrir menú">
+        <span class="lineas" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span id="texto-menu">Menú</span>
+      </button>
 
-  <div class="contenedor barra">
+      <nav id="navegacion" class="navegacion" aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#nosotros">Nosotros</a></li>
+          <li>
+            <details id="resolver" class="desplegable">
+              <summary>Resolver</summary>
+              <ul class="submenu">
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#orientador">Ver objetos</a></li>
+                <li><a href="index.html#contacto">Solicitar devolución</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a href="recursos.html">Video y guía</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-   <a class="marca" href="#inicio" aria-label="ACME, ir al inicio">
+  <main id="contenido-principal">
+    <!-- BARRA DE RETORNO Y RUTA DE NAVEGACIÓN (BREADCRUMB) -->
+    <div class="contenedor barra-superior-ruta">
+      <a class="boton" href="index.html">← Volver al inicio</a>
+      <span class="nota">Inicio / Servicios / <strong>Beneficios y Rutas</strong></span>
+    </div>
 
-    <img src="iconos/favicon.svg" alt="" width="42" height="42">
+    <!-- SECCIÓN 1: INTRODUCCIÓN EN DOS COLUMNAS CON PLANTILLA DE IMAGEN PRINCIPAL -->
+    <section class="seccion">
+      <div class="contenedor dos-columnas">
+        <div>
+          <span class="etiqueta">Movilidad Inteligente</span>
+          <h1>¿Qué es una Ruta Ciclista?</h1>
+          <p>
+            Una ruta es un trayecto planificado para recorrer en bicicleta de forma segura y eficiente. Planificar tu recorrido antes de salir te permite evitar vías con tráfico pesado, identificar ciclovías conectadas y aprovechar mejor tu tiempo diario.
+          </p>
+          <p class="nota">
+            En ACME analizamos la elevación, el estado del pavimento y los puntos de descanso para que cada viaje sea predecible.
+          </p>
+        </div>
 
-    ACME
+        <!-- PLANTILLA DE IMAGEN 1 (Estilo .postal y .foto de tu CSS) -->
+        <figure class="postal">
+          <!-- REEMPLAZA ESTE DIV POR: <img class="foto" src="img/tu-imagen-principal.jpg" alt="Descripción"> -->
+          <div class="foto plantilla-img" role="img" aria-label="Espacio reservado para imagen principal de ruta">
+            <strong>[ Espacio para Imagen Principal ]</strong>
+            <span>Proporción recomendada: 4:3 (Ej. 800 x 600 px)</span>
+            <span>Ideal: Ciclista en ruta urbana o mapa</span>
+          </div>
+          <figcaption>Planificar tu trayecto reduce hasta un 30% los tiempos de traslado en hora punta.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-   </a>
+    <!-- SECCIÓN 2: TIPOS DE RUTAS CON PLANTILLAS DE IMAGEN EN 3 TARJETAS -->
+    <section class="seccion fondo">
+      <div class="contenedor">
+        <span class="etiqueta">Explora opciones</span>
+        <h2>Tipos de Rutas Recomendadas</h2>
+        <p class="intro-servicios">
+          Elige el trayecto que mejor se adapte a tu nivel de experiencia y objetivo del día.
+        </p>
 
-   <button id="boton-menu" class="hamburguesa" type="button"
+        <div class="tarjetas">
+          <!-- Tarjeta 1 -->
+          <article class="tarjeta">
+            <!-- REEMPLAZA ESTE DIV POR: <img class="tarjeta-ruta-img" src="img/ruta-urbana.jpg" alt="Ruta Urbana"> -->
+            <div class="tarjeta-ruta-img plantilla-img">
+              <strong>[ Imagen 1: Ruta Urbana ]</strong>
+              <span>Proporción 3:2 (600 x 400 px)</span>
+            </div>
+            <span class="numero">01 · Nivel Básico</span>
+            <h3>Ciclovías Urbanas</h3>
+            <p>Trayectos planos y señalizados, ideales para ir al trabajo o estudio sin compartir carril con autos.</p>
+          </article>
 
-       aria-controls="navegacion" aria-expanded="false" aria-label="Abrir menú">
+          <!-- Tarjeta 2 -->
+          <article class="tarjeta">
+            <!-- REEMPLAZA ESTE DIV POR: <img class="tarjeta-ruta-img" src="img/ruta-recreativa.jpg" alt="Ruta Recreativa"> -->
+            <div class="tarjeta-ruta-img plantilla-img">
+              <strong>[ Imagen 2: Ruta Costera / Parque ]</strong>
+              <span>Proporción 3:2 (600 x 400 px)</span>
+            </div>
+            <span class="numero">02 · Nivel Intermedio</span>
+            <h3>Circuitos Recreativos</h3>
+            <p>Rutas escénicas por malecones o parques metropolitanos pensadas para entrenar resistencia cardiovascular.</p>
+          </article>
 
-    <span class="lineas" aria-hidden="true"><span></span><span></span><span></span></span>
+          <!-- Tarjeta 3 -->
+          <article class="tarjeta">
+            <!-- REEMPLAZA ESTE DIV POR: <img class="tarjeta-ruta-img" src="img/ruta-montana.jpg" alt="Ruta de Montaña"> -->
+            <div class="tarjeta-ruta-img plantilla-img">
+              <strong>[ Imagen 3: Ruta Mixta / Sendero ]</strong>
+              <span>Proporción 3:2 (600 x 400 px)</span>
+            </div>
+            <span class="numero">03 · Nivel Avanzado</span>
+            <h3>Travesías de Desnivel</h3>
+            <p>Recorridos de larga distancia con pendientes pronunciadas para ciclistas que buscan exigencia física.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <span id="texto-menu">Menú</span>
+    <!-- SECCIÓN 3: BENEFICIOS DE MONTAR BICICLETA -->
+    <section class="seccion">
+      <div class="contenedor">
+        <span class="etiqueta">Bienestar y Ahorro</span>
+        <h2>Beneficios de Montar en Bicicleta</h2>
 
-   </button>
+        <div class="tarjetas">
+          <div class="tarjeta">
+            <span class="numero">Salud</span>
+            <h3>Mejora cardiovascular</h3>
+            <p>Fortalece el corazón, mejora la capacidad pulmonar y reduce el riesgo de enfermedades crónicas.</p>
+          </div>
 
-   <nav id="navegacion" class="navegacion" aria-label="Navegación principal">
+          <div class="tarjeta">
+            <span class="numero">Mente</span>
+            <h3>Reduce el estrés</h3>
+            <p>El ejercicio aeróbico al aire libre libera endorfinas, despeja la mente y mejora la calidad del sueño.</p>
+          </div>
 
-    <ul class="menu">
+          <div class="tarjeta">
+            <span class="numero">Economía y Entorno</span>
+            <h3>Ahorro y cero emisiones</h3>
+            <p>Evitas gastos diarios en combustible o pasajes mientras contribuyes a una ciudad más limpia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-     <li><a href="#inicio">Inicio</a></li>
+    <!-- SECCIÓN 4: CHECKLIST RÁPIDO ANTES DE SALIR -->
+    <section class="seccion fondo">
+      <div class="contenedor">
+        <div class="tarjeta">
+          <span class="etiqueta">Seguridad Vial</span>
+          <h2>Checklist antes de iniciar tu ruta</h2>
+          <ul>
+            <li><strong>Revisión mecánica rápida:</strong> Verifica la presión de las llantas y el estado de ambos frenos.</li>
+            <li><strong>Visibilidad y protección:</strong> Usa casco abrochado y luces (blanca adelante, roja atrás) si ruedas de noche.</li>
+            <li><strong>Hidratación y herramientas:</strong> Lleva agua suficiente y un kit básico contra pinchazos para trayectos largos.</li>
+          </ul>
+          <a class="boton" href="recursos.html">Ver guía completa y videos</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-     <li><a href="#nosotros">Nosotros</a></li>
+  <!-- PIE DE PÁGINA (Trazabilidad con estilos.css) -->
+  <footer class="pie">
+    <div class="contenedor">
+      <p><strong>ACME</strong> · Movilidad segura y planificación de rutas ciclistas.</p>
+      <p class="nota"><a href="index.html">Volver a la página principal</a></p>
+    </div>
+  </footer>
 
-     <li>
-
-      <details id="resolver" class="desplegable">
-
-       <summary>Resolver</summary>
-
-       <ul class="submenu">
-
-        <li><a href="#servicios">Servicios</a></li>
-
-        <li><a href="#orientador">Ver objetos</a></li>
-
-        <li><a href="#contacto">Solicitar devolución</a></li>
-
-       </ul>
-
-      </details>
-
-     </li>
-
-     <li><a href="recursos.html">Video y guía</a></li>
-
-    </ul>
-
-   </nav>
-
-  </div>
-
- </header>
-
-
-
- <main class="contenedor-info">
-
-  <!-- Única funcionalidad: Botón para volver a la página principal -->
-
-  <button class="btn-volver" type="button" onclick="window.location.href='index.html'">
-
-   ← Volver al inicio
-
-  </button>
-
-
-
-  <!-- Información de Rutas -->
-
-  <section class="seccion-card">
-
-   <h2>¿Qué es una Ruta Ciclista?</h2>
-
-   <p>
-
-    Una ruta es un trayecto planificado para recorrer en bicicleta de forma segura y eficiente. Planificar tu ruta antes de salir te ayuda a evitar vías con tráfico pesado y aprovechar mejor tu tiempo.
-
-   </p>
-
-  </section>
-
-
-
-  <!-- Beneficios de montar bicicleta -->
-
-  <section class="seccion-card">
-
-   <h2>Beneficios de Montar en Bicicleta</h2>
-
-   <ul class="lista-sencilla">
-
-    <li><strong>Mejora la salud cardiovascular:</strong> Fortalece el corazón y reduce el riesgo de enfermedades.</li>
-
-    <li><strong>Reduce el estrés:</strong> El ejercicio al aire libre ayuda a despejar la mente y mejorar el ánimo.</li>
-
-    <li><strong>Ahorra dinero y tiempo:</strong> Evitas el tráfico de la ciudad y los gastos en combustible o pasajes.</li>
-
-    <li><strong>Cuida el medio ambiente:</strong> Es un medio de transporte limpio que no genera emisiones contaminantes.</li>
-
-   </ul>
-
-  </section>
-
- </main>
-
-<script src="menu.js" defer></script>
-
+  <script src="menu.js" defer></script>
 </body>
-
 </html>
